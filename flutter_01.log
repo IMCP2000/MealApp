@@ -1,0 +1,113 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter run --machine --target lib\main.dart -d 39d801d6 --track-widget-creation --dart-define=flutter.inspector.structuredErrors=true --start-paused --web-server-debug-protocol ws --web-allow-expose-url
+
+## exception
+
+ArchiveException: FormatException: Invalid Zip Signature
+
+```
+#0      new ZipFile (package:archive/src/zip/zip_file.dart:31:9)
+#1      new ZipFileHeader (package:archive/src/zip/zip_file_header.dart:85:16)
+#2      new ZipDirectory.read (package:archive/src/zip/zip_directory.dart:53:23)
+#3      ZipDecoder.decodeBuffer (package:archive/src/zip_decoder.dart:20:30)
+#4      ZipDecoder.decodeBytes (package:archive/src/zip_decoder.dart:14:12)
+#5      _WindowsUtils.unzip (package:flutter_tools/src/base/os.dart:333:42)
+#6      CachedArtifact._downloadArchive.<anonymous closure> (package:flutter_tools/src/cache.dart:651:16)
+<asynchronous suspension>
+#7      CachedArtifact._downloadArchive.<anonymous closure> (package:flutter_tools/src/cache.dart)
+#8      CachedArtifact._withDownloadFile (package:flutter_tools/src/cache.dart:670:26)
+#9      CachedArtifact._downloadArchive (package:flutter_tools/src/cache.dart:636:12)
+#10     CachedArtifact._downloadZipArchive (package:flutter_tools/src/cache.dart:657:12)
+#11     EngineCachedArtifact.updateInner (package:flutter_tools/src/cache.dart:795:13)
+<asynchronous suspension>
+#12     CachedArtifact.update (package:flutter_tools/src/cache.dart:592:11)
+#13     Cache.updateAll (package:flutter_tools/src/cache.dart:458:24)
+#14     FlutterCommand.verifyThenRunCommand (package:flutter_tools/src/runner/flutter_command.dart:831:27)
+#15     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:741:33)
+<asynchronous suspension>
+#16     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart)
+#17     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:29)
+#18     _rootRun (dart:async/zone.dart:1190:13)
+#19     _CustomZone.run (dart:async/zone.dart:1093:19)
+#20     _runZoned (dart:async/zone.dart:1630:10)
+#21     runZoned (dart:async/zone.dart:1550:10)
+#22     AppContext.run (package:flutter_tools/src/base/context.dart:149:18)
+#23     FlutterCommand.run (package:flutter_tools/src/runner/flutter_command.dart:730:20)
+#24     CommandRunner.runCommand (package:args/command_runner.dart:197:27)
+#25     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:332:21)
+<asynchronous suspension>
+#26     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart)
+#27     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:29)
+#28     _rootRun (dart:async/zone.dart:1190:13)
+#29     _CustomZone.run (dart:async/zone.dart:1093:19)
+#30     _runZoned (dart:async/zone.dart:1630:10)
+#31     runZoned (dart:async/zone.dart:1550:10)
+#32     AppContext.run (package:flutter_tools/src/base/context.dart:149:18)
+#33     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:282:19)
+<asynchronous suspension>
+#34     CommandRunner.run.<anonymous closure> (package:args/command_runner.dart:112:25)
+#35     new Future.sync (dart:async/future.dart:223:31)
+#36     CommandRunner.run (package:args/command_runner.dart:112:14)
+#37     FlutterCommandRunner.run (package:flutter_tools/src/runner/flutter_command_runner.dart:231:18)
+#38     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:69:22)
+#39     _rootRun (dart:async/zone.dart:1190:13)
+#40     _CustomZone.run (dart:async/zone.dart:1093:19)
+#41     _runZoned (dart:async/zone.dart:1630:10)
+#42     runZonedGuarded (dart:async/zone.dart:1618:12)
+#43     runZoned (dart:async/zone.dart:1547:12)
+#44     run.<anonymous closure> (package:flutter_tools/runner.dart:67:18)
+<asynchronous suspension>
+#45     run.<anonymous closure> (package:flutter_tools/runner.dart)
+#46     runInContext.runnerWrapper (package:flutter_tools/src/context_runner.dart:62:18)
+<asynchronous suspension>
+#47     runInContext.runnerWrapper (package:flutter_tools/src/context_runner.dart)
+#48     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:29)
+#49     _rootRun (dart:async/zone.dart:1190:13)
+#50     _CustomZone.run (dart:async/zone.dart:1093:19)
+#51     _runZoned (dart:async/zone.dart:1630:10)
+#52     runZoned (dart:async/zone.dart:1550:10)
+#53     AppContext.run (package:flutter_tools/src/base/context.dart:149:18)
+#54     runInContext (package:flutter_tools/src/context_runner.dart:65:24)
+#55     run (package:flutter_tools/runner.dart:52:10)
+#56     main (package:flutter_tools/executable.dart:73:9)
+#57     main (file:///D:/Softwares/flutter_windows_1.20.1-stable/flutter/packages/flutter_tools/bin/flutter_tools.dart:8:3)
+#58     _startIsolate.<anonymous closure> (dart:isolate-patch/isolate_patch.dart:299:32)
+#59     _RawReceivePortImpl._handleMessage (dart:isolate-patch/isolate_patch.dart:168:12)
+```
+
+## flutter doctor
+
+```
+[✓] Flutter (Channel stable, 1.20.3, on Microsoft Windows [Version 10.0.18363.1016], locale en-US)
+    • Flutter version 1.20.3 at D:\Softwares\flutter_windows_1.20.1-stable\flutter
+    • Framework revision 216dee60c0 (35 hours ago), 2020-09-01 12:24:47 -0700
+    • Engine revision d1bc06f032
+    • Dart version 2.9.2
+
+[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.2)
+    • Android SDK at D:\program files\AndroidSDK
+    • Platform android-30, build-tools 30.0.2
+    • ANDROID_SDK_ROOT = D:\program files\AndroidSDK
+    • Java binary at: D:\program files\Android Studio\jre\bin\java
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b01)
+    • All Android licenses accepted.
+
+[✓] Android Studio (version 4.0)
+    • Android Studio at D:\program files\Android Studio
+    • Flutter plugin version 48.1.2
+    • Dart plugin version 193.7361
+    • Java version OpenJDK Runtime Environment (build 1.8.0_242-release-1644-b01)
+
+[✓] VS Code (version 1.48.2)
+    • VS Code at C:\Users\Chaitanya\AppData\Local\Programs\Microsoft VS Code
+    • Flutter extension version 3.13.2
+
+[!] Connected device
+    ! No devices available
+
+! Doctor found issues in 1 category.
+```
